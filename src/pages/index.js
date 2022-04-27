@@ -1,6 +1,7 @@
-import ChatBox from '../components/chatBox';
-import ActionBox from '../components/actionBox';
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
+import ChatBox from "../components/chatBox";
+import ActionBox from "../components/actionBox";
+import { DefaultAvatars, MyAvatar, MyLove } from "../Utils/Avatars";
 
 export default function IndexPage() {
   return (
@@ -13,6 +14,15 @@ export default function IndexPage() {
         make a type specimen book."
         buttonText="Chat Now"
         buttonType="primary"
+        avatarArray={DefaultAvatars}
+      />
+      <ActionBox
+        title="Works pretty well"
+        subtitle="Juan Vitor"
+        description="First time using Umi and Ant but it's pretty simple to use, almost like React."
+        buttonText="Hire Me"
+        buttonType="ghost"
+        avatarArray={MyAvatar}
       />
     </ChatBox>
   );

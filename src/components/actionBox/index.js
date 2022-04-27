@@ -1,8 +1,6 @@
-import { Row, Col, Card, Avatar, Typography } from 'antd';
-import styles from './index.less';
-import Button from '../button';
-
-const { Link } = Typography;
+import { Row, Col, Card, Avatar, Typography } from "antd";
+import styles from "./index.less";
+import DefaultButton from "../button";
 
 export default function ActionBox({
   title,
@@ -10,18 +8,19 @@ export default function ActionBox({
   description,
   buttonText,
   buttonType,
+  avatarArray = [],
 }) {
   return (
     <Card className={styles.chatbox}>
-      <Title level={3} className={styles.title}>
+      <Typography.Title level={3} className={styles.title}>
         {title}
-      </Title>
+      </Typography.Title>
 
       <p className={styles.subtitle}>
-        with{' '}
-        <Link href="https://test.com" target="_blank">
+        with{" "}
+        <Typography.Link href="https://test.com" target="_blank">
           {subtitle}
-        </Link>
+        </Typography.Link>
       </p>
 
       <p>{description}</p>
@@ -30,16 +29,13 @@ export default function ActionBox({
         <Col xs={24} md={18}>
           <div>Chat with:</div>
           <Avatar.Group size="large">
-            <Avatar src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixqx=ITpzis0SHv&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" />
-            <Avatar src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=ITpzis0SHv&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" />
-            <Avatar src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixqx=ITpzis0SHv&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
-            <Avatar src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixqx=ITpzis0SHv&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+            {avatarArray.map((avatar) => (
+              <Avatar src={avatar} />
+            ))}
           </Avatar.Group>
         </Col>
-        <Col xs={24} md={6} style={{ marginTop: '1rem' }}>
-          <Button block={true} size="large" type={buttonType}>
-            {buttonText}
-          </Button>
+        <Col xs={24} md={6} style={{ marginTop: "1rem" }}>
+          <DefaultButton size="large" text={buttonText} type={buttonType} />
         </Col>
       </Row>
     </Card>
