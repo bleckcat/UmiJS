@@ -1,1 +1,1 @@
-# Thanks for the attetion
+# Thanks for the attention
